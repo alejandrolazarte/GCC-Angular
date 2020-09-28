@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/domain/Product';
 import { ProductService } from '../../services/product.service'
 import { ModalService } from '../../services/modal.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,8 @@ export class ProductListComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private productService : ProductService,
-    private modalService: ModalService ) { }
+    private modalService: ModalService,
+    private router: Router ) { }
 
   async ngOnInit() : Promise<void> {
     await this.loadProducts()    
@@ -33,11 +35,14 @@ export class ProductListComponent implements OnInit {
   }
 
   public async loadProducts() {
-    debugger
     this.products = await this.productService.getAll(this.searchTerm);
   }
 
   public clearFilter() : void {
     this.searchTerm = '';
+  }
+
+  public navigateToEdit(id:number) : void {
+    this.router.navigateByUrl(`/product/update/${id}`);
   }
 }

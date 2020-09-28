@@ -31,7 +31,7 @@
                     <td>{{product.price}}</td>
                     <td class="text-right">
                         <a class="btn btn-danger" (click)="delete(product.id)">Eliminar</a>
-                        <a class="btn btn-warning" >Editar</a>
+                        <a class="btn btn-warning" (click)="navigateToEdit(product.id)">Editar</a>
                     </td>
                 </tr>
             </tbody>

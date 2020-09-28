@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CreateProductCommand, Product, UpdateProductCommand } from '../domain/Product';
 import { environment } from 'src/environments/environment';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 
 
 @Injectable({
@@ -16,6 +15,10 @@ export class ProductService {
 
   public async getAll(search: string = ''): Promise<Product[]> {
     return await this.http.get<Product[]>(`${this.urlApi}/all/${search}`).toPromise();
+  }
+
+  public async getbyId(id: number): Promise<Product> {
+    return await this.http.get<Product>(`${this.urlApi}/${id}/`).toPromise();
   }
 
   public async create(command: CreateProductCommand): Promise<number> {
