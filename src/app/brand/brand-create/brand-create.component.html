@@ -1,0 +1,25 @@
+
+<div class="card">
+    <div class="card-header">
+      Nuevo Producto
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-md-6 col-sm-12">
+            <input type="text" 
+                class="form-control" 
+                placeholder="Name" 
+                formControlName="name" 
+                [class.is-invalid]="name.errors && isInvalid">
+              <div class="invalid-feedback">El apellido es requerido</div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <div (click)="back()" class="btn btn-secondary">Cancelar</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

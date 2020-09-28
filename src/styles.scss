@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.btn{
+    margin: 5px;
+}
+
+.form-inline > * {
+    margin:5px 3px;
+ }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

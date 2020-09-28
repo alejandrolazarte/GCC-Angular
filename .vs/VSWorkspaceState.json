@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\product\\product-create",
+    "\\src\\app\\product\\product-list",
+    "\\src\\app\\shared\\app-navbar",
+    "\\src\\app\\shared\\custom-modal"
+  ],
+  "SelectedNode": "\\src\\app",
+  "PreviewInSolutionExplorer": false
+}

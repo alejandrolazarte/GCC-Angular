@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header">
+        Productos
+    </div>
+    <div class="card-body">
+        <div class="row m-2 d-flex justify-content-end">
+            <div class="form-inline">
+                <input class="form-control" 
+                [(ngModel)]="searchTerm"
+                placeholder="Nombre del producto"
+                (keyup.enter)="loadProducts()"
+                (keyup.esc)="clearFilter()" >
+                <button [routerLink]="'/product/create'" class="btn btn-primary">Nuevo</button>
+            </div>         
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Cost</th>
+                    <th>Precio</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.cost}}</td>
+                    <td>{{product.price}}</td>
+                    <td class="text-right">
+                        <a class="btn btn-danger" (click)="delete(product.id)">Eliminar</a>
+                        <a class="btn btn-warning" >Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

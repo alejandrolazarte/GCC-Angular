@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+        Marcas
+    </div>
+    <div class="card-body">
+        <div class="row m-2 d-flex justify-content-end">
+            <div class="form-inline">
+                <input class="form-control"
+                [(ngModel)]="searchTerm"
+                placeholder="Nombre de la marca"
+                (keyup.enter)="loadBrands()"
+                (keyup.esc)="clearFilter()" >
+                <button [routerLink]="'/brand/create'" class="btn btn-primary">Nuevo</button>
+            </div>         
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let brand of brands">
+                    <td>{{brand.id}}</td>
+                    <td>{{brand.name}}</td>
+                    <td class="text-right">
+                        <a class="btn btn-danger" (click)="delete(brand.id)">Eliminar</a>
+                        <a class="btn btn-warning" >Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
